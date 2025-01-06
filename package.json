@@ -1,0 +1,23 @@
+{
+  "name": "polestar_assignment",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.49.0",
+    "@types/node": "^22.10.1"
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "axios": "^1.7.9",
+    "playwright": "^1.49.1",
+    "playwright-core": "^1.49.0",
+    "undici-types": "^6.20.0"
+  },
+  "description": ""
+}
