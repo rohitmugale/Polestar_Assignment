@@ -1,13 +1,13 @@
 const {test,expect}= require ('@playwright/test');
 var userid;
 
-test("Get users", async ({request})=>{
+test("Get", async ({request})=>{
      const response= await request.get ('https://reqres.in/api/users?"page":2');
      console.log(await response.json())
      expect(response.status ()).toBe (200)
  })
 
- test("Create user",async ({request})=>{
+ test("post",async ({request})=>{
 
  const response=await request.post ('https://reqres.in/api/users',
                        {
@@ -23,7 +23,7 @@ test("Get users", async ({request})=>{
                     
  })
 
- test("Update user", async({request})=>{
+ test("put", async({request})=>{
     const response=await request.put ('https://reqres.in/api/users/'+userid,
     {
     data:{"name":"kumar","job":"engineer"},
@@ -33,7 +33,7 @@ test("Get users", async ({request})=>{
       expect(response.status()).toBe(200)
  })
 
-  test("Delete user",async ({request})=>{
+  test("delete",async ({request})=>{
   const response =await request.delete('https://reqres.in/api/users/411')
   expect(response.status()).toBe(204)
 
