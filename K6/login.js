@@ -2,6 +2,10 @@ import http from 'k6/http';
 import { check } from 'k6';
 import { sleep } from 'k6';
 
+
+
+
+
 export let options = {
   stages: [
     { duration: '30s', target: 50 },   
@@ -18,8 +22,5 @@ export default function () {
     'is status 200': (r) => r.status === 200,
   });
 
-
-
-  
  sleep(1); 
 }
