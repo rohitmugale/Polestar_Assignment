@@ -18,5 +18,5 @@ export default function () {
     'is status 200': (r) => r.status === 200,
   });
 
-                        sleep(1); 
+ sleep(1); 
 }
