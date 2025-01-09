@@ -1,52 +1,27 @@
-
-name: Run Tests and Publish Report
-
+name: Polestar_Assignment
 on:
   push:
-    branches:
-      - main
+    branches: [ main, master ]
   pull_request:
-    branches:
-      - main
-
+    branches: [ main, master ]
 jobs:
   test:
-    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    runs-on: windows-latest
     steps:
-      # Checkout the code
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      # Set up Node.js (skip this if you use a different language)
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16'  # Use the appropriate version of Node.js for your project
-
-      # Install dependencies
-      - name: Install dependencies
-        run: npm install
-
-      # Run the tests
-      - name: Run Tests
-        run: npm test
-
-      # Upload test reports (for example, JUnit or other format)
-      - name: Upload test results
-        uses: actions/upload-artifact@v3
-        with:
-          name: test-results
-          path: path/to/test/report.xml  # Adjust this path based on your test framework
-
-      # Optionally, upload code coverage reports
-      - name: Upload coverage report
-        if: success()  # Only upload if the tests pass
-        uses: actions/upload-artifact@v3
-        with:
-          name: coverage-report
-          path: path/to/coverage-report  # Adjust path to where your coverage report is generated
-
-  
-
-
-  
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 22
+    - name: Install dependencies
+      run: npm ci
+    - name: Install Playwright Browsers
+      run: npx playwright install --with-deps
+    - name: Run Playwright tests 
+      run: npx playwright test --project=chromium
+    - uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: playwright-report
+        path: playwright-report/
+        retention-days: 30
