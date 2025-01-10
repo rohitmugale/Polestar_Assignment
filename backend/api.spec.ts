@@ -27,7 +27,7 @@ test('apiPut',async ({request}) => {
     const response = await request.put('https://reqres.in/api/users/'+userid,
 
         {
-            data:{"name":"Rohit","job":"Emgineer" },
+            data:{"name":"Rohit","job":"Engineer" },
             headers:{"Accept":"application/json "}
         });
 
