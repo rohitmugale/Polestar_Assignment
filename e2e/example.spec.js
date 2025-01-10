@@ -10,7 +10,7 @@ async () => {
       'accessKey': process.env.LT_ACCESS_KEY,
       'network': true,
       'video': true,
-      'console': true
+      'console': true,
     }
   }
   const browser = await chromium.connect({

@@ -3,13 +3,13 @@ var userid;
 
 test.describe('REST API Tests with ReqRes', () => {
 
-test('apiGet',async ({request}) => {
+test('Get',async ({request}) => {
     const response = await request.get('https://reqres.in/api/users?page=2')
     console.log(await response.json())
     expect(response.status()).toBe(200)
 });
 
-test('apiPost',async ({request}) => {
+test('Post',async ({request}) => {
     const response = await request.post('https://reqres.in/api/users',
 
                                          {
@@ -23,7 +23,7 @@ test('apiPost',async ({request}) => {
     userid=ser.id
 })
 
-test('apiPut',async ({request}) => {
+test('Put',async ({request}) => {
     const response = await request.put('https://reqres.in/api/users/'+userid,
 
         {
@@ -36,7 +36,7 @@ test('apiPut',async ({request}) => {
 
 })
 
-    test('apiDelete',async ({request}) => {
+    test('Delete',async ({request}) => {
      await request.delete('https://reqres.in/api/users/'+userid)
 
     })
