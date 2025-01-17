@@ -1,14 +1,5 @@
 ## Project Overview
 
-
-
-
-
-
-
-
-
-
 ## Project Title: Automated Testing Framework for Polestar Portal 
 
 ## Project Description:
