@@ -2,6 +2,7 @@ import { test,expect} from '@playwright/test';
 import { homePage} from'../pom-demo/homePage';
 import { loginPage } from '../pom-demo/loginPage';
 
+
 test('TC: 01- Verify the title of the homepage', async ({ page }) => {
   const home = new homePage (page)
 
