@@ -30,7 +30,6 @@ export class homePage{
         await this.currentOffers.click()
     }
 
-
     async acceptAll(page){
         await this.page.waitForTimeout(1000)
         await page.getByRole('button', { name: 'Accept all' }).click();
@@ -53,4 +52,4 @@ export class homePage{
     }
    
 }
-
+    
