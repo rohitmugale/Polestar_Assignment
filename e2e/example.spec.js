@@ -1,19 +1,19 @@
-async () => {
-  const capabilities = {
-    'browserName': 'Chrome', // Browsers allowed: `Chrome`, `MicrosoftEdge`, `pw-chromium`, `pw-firefox` and `pw-webkit`
-    'browserVersion': 'latest',
-    'LT:Options': {
-      'platform': 'Windows 10',
-      'build': 'Playwright Sample Build',
-      'name': 'Playwright Sample Test',
-      'user': process.env.LT_USERNAME,
-      'accessKey': process.env.LT_ACCESS_KEY,
-      'network': true,
-      'video': true,
-      'console': true,
-    }
-  }
-  const browser = await chromium.connect({
-    wsEndpoint: `wss://cdp.lambdatest.com/playwright?capabilities=${encodeURIComponent(JSON.stringify(capabilities))}`
-  }
-)}
+// @ts-check
+const { test, expect } = require('@playwright/test');
+
+test('has title', async ({ page }) => {
+  await page.goto('https://playwright.dev/');
+
+  // Expect a title "to contain" a substring.
+  await expect(page).toHaveTitle(/Playwright/);
+});
+
+test('get started link', async ({ page }) => {
+  await page.goto('https://playwright.dev/');
+
+  // Click the get started link.
+  await page.getByRole('link', { name: 'Get started' }).click();
+
+  // Expects page to have a heading with the name of Installation.
+  await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
+});

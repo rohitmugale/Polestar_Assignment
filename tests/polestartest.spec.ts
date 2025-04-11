@@ -12,7 +12,7 @@ await home.getPageTitle(page)
 await home.printPageTitle(page)
 
 });
-
+          
 test('TC: 02- Verify user can see Current offers', async ({ page }) => {
   const home = new homePage (page)
   await page.goto('https://www.polestar.com/us/');

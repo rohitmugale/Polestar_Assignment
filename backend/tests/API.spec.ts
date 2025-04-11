@@ -9,7 +9,6 @@ test('Get',async ({request}) => {
     expect(response.status()).toBe(200)
 });
 
-
 test('Post',async ({request}) => {
     const response = await request.post('https://reqres.in/api/users',
 
