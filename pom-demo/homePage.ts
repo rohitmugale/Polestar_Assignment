@@ -9,7 +9,7 @@ export class homePage{
     constructor (page:Page){
       this.page = page           
       this.currentOffers = page.locator('//*[@id="4513618-106934424"]/div/div/div/div[2]/div/a/div/div/div[1]/div/div/picture/img')
-      this.youtube = page.locator ('//*[@id="main-content"]/div/div[4]/footer/div/section/div/div[1]/div[2]/nav[5]/a[3]')
+     this.youtube = page.locator ('//*[@id="main-content"]/div/div[4]/footer/div/section/div/div[1]/div[2]/nav[5]/a[3]')
       
       
     }
@@ -44,12 +44,14 @@ export class homePage{
         await console.log(pageTitle)
     }
 
-        async clickonyoutube(){
-        await this.page.waitForTimeout(1000)
-        await this.youtube.click()
-        await this.page.waitForTimeout(2000)
+       async clickonyoutube(){
+       await this.page.waitForTimeout(1000)
+       await this.youtube.click()
+       await this.page.waitForTimeout(2000)
+
+        }
+        
     
     }
    
-}
-    
+
